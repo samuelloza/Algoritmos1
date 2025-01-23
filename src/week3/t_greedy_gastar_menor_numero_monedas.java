@@ -2,11 +2,11 @@ package week3;
 
 public class t_greedy_gastar_menor_numero_monedas {
 
-	public static int select(int[] moneys, int capacity) {
+	public static int select(int[] coins, int capacity) {
 		int index = -1;
 
-		for (int i = moneys.length - 1; i >= 0; i--) {
-			if (moneys[i] <= capacity) {
+		for (int i = 0; i < coins.length; i++) {
+			if (coins[i] <= capacity) {
 				index = i;
 				break;
 			}
@@ -14,33 +14,33 @@ public class t_greedy_gastar_menor_numero_monedas {
 		return index;
 	}
 
-	public static int[] greedy(int[] moneys, int capacity) {
-		int[] solutions = new int[moneys.length];
-		int remainingCapacity = capacity;
+	public static int[] monedas(int[] coins, int capacity) {
+		int[] solutions = new int[coins.length];
+		int currentSolution = capacity;
 
-		while (remainingCapacity > 0) {
-			int i = select(moneys, remainingCapacity);
-			if (i == -1)
+		while (currentSolution > 0) {
+			int index = select(coins, currentSolution);
+			if (index == -1)
 				break;
-
-			int count = remainingCapacity / moneys[i];
-			solutions[i] += count;
-			remainingCapacity -= count * moneys[i];
+			
+			int count = currentSolution / coins[index];
+			solutions[index] += count;
+			currentSolution -= (coins[index] * count);
 		}
 
 		return solutions;
 	}
 
 	public static void main(String[] args) {
-		int[] m = { 1, 2, 5, 10, 18, 20 };
+		int[] m = { 20, 10, 5, 2, 1};
 		int capacity = 36;
 
-		int[] solution = greedy(m, capacity);
+		int[] solution = monedas(m, capacity);
 		int totalCoins = 0;
 		for (int i = 0; i < solution.length; i++) {
 			totalCoins += solution[i];
-			System.out.println(solution[i] + " " + m[i]);
+			System.out.println("Se uso " + solution[i] + " monedas de " + m[i] + " pesos");
 		}
-		System.out.println(totalCoins);
+		System.out.println("Total  = " + totalCoins + " monedas");
 	}
 }
