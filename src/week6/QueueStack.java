@@ -12,32 +12,32 @@ public class QueueStack {
 		int n = sc.nextInt();
 
 		for (int i = 0; i < n; i++) {
-			Stack<Character> stack = new Stack<Character>();
-			Queue<Character> queue = new LinkedList<Character>();
+			Stack<Character> pila = new Stack<Character>();
+			Queue<Character> cola = new LinkedList<Character>();
 			String cad = sc.next();
 
-			String ans = "";
+			String solution = "";
 			for (int j = 0; j < cad.length(); j++) {
-				char aux = cad.charAt(j);
+				char input = cad.charAt(j);
 
-				if (aux >= 'a' && aux <= 'z') {
-					queue.add(aux);
-				} else if (aux == ')') {
-					while (!queue.isEmpty()) {
-						ans = ans + queue.poll();
+				if (input >= 'a' && input <= 'z') {
+					cola.add(input);
+				} else if (input == ')') {
+					while (!cola.isEmpty()) {
+						solution = solution + cola.poll();
 					}
 
-					while(stack.peek() != '(') {
-						ans = ans + stack.pop();
+					while(pila.peek() != '(') {
+						solution = solution + pila.pop();
 					}
-					stack.pop();
+					pila.pop();
 
 				} else {
-					stack.add(aux);
+					pila.add(input);
 				}
 			}
 			
-			System.out.println(ans);
+			System.out.println(solution);
 			/*while(!stack.isEmpty()) {
 				if (stack.peek() != '(')
 				System.out.print(stack.pop());
