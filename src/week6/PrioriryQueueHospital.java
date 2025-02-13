@@ -55,8 +55,7 @@ public class PrioriryQueueHospital {
 			name = sc.next();
 			priority = sc.nextInt();
 			pacientQueue.add(new Pacient0(name, priority));
-		}
-		
+		}		
 		while(!pacientQueue.isEmpty()) {
 			Pacient0 tmp = pacientQueue.poll();
 			System.out.println(tmp.getName() + " " + tmp.getPrioriry());

@@ -38,11 +38,6 @@ public class QueueStack {
 			}
 			
 			System.out.println(solution);
-			/*while(!stack.isEmpty()) {
-				if (stack.peek() != '(')
-				System.out.print(stack.pop());
-			}
-			System.out.println();*/
 		}
 	}
 

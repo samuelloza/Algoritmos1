@@ -1,4 +1,4 @@
-package week6;
+package week6.implemtations;
 
 class MyQueueCustom {
 	private int maxSize = 0;

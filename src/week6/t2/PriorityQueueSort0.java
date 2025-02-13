@@ -1,4 +1,4 @@
-package week6;
+package week6.t2;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;
